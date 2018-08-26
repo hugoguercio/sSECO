@@ -1,0 +1,2240 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/24/2018 11:49:08 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PC-HUGO"
+  DTS:CreatorName="PC-HUGO\Hugo Fernandes"
+  DTS:DTSID="{CC29BE76-D787-43F8-9F60-2B6B0DC867B1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="277"
+  DTS:VersionGUID="{D1B7BBF0-4BA2-4882-8CAC-078D7E2CCF3C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LogPopulateDatabase]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{858C5C69-5C60-4933-9C07-58F154072B22}"
+      DTS:ObjectName="LogPopulateDatabase">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="F:\GHTorrent\SSIS\logPopulateDatabase.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="302"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Flat File Source Error Output Column"
+              DTS:DTSID="{3B3D03FA-176B-4757-8A30-D4ED31F3A122}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{B54B02EF-09C5-4AAE-B618-21AEEB731600}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{5718B4B9-D0DF-4497-8CE5-79140FA5E31C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PC-HUGO\SQL2016.ghtorrent]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{483FE999-78B1-4805-86DD-B01E12833BEA}"
+      DTS:ObjectName="PC-HUGO\SQL2016.ghtorrent">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-NAM48FU;Initial Catalog=GHTorrent;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[RawCSV]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{1E1DAFAA-A711-4054-B9F0-9B1A23B1EC0C}"
+      DTS:ObjectName="RawCSV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="F:\GHTorrent\SSIS\users.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:ObjectName="raw"
+              DTS:DTSID="{5D226ABA-5C75-4777-91BB-299F768D7838}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SanitizedCSV]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7A8D3CCB-ACD6-49C5-9709-02378E7727AD}"
+      DTS:ObjectName="SanitizedCSV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="F:\GHTorrent\SSIS\sanitized.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="raw"
+              DTS:DTSID="{9B4BA1F7-E777-4E42-8FD6-665758EAC72D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Populate Database"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3048AFF0-0F36-4F71-961B-9030BF944A43}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populate Database">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Populate Database\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Populate Database\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate Database\Derived Column.Inputs[Derived Column Input].Columns[country_code]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="country_code"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[country_code]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[country_code]} == "" ? NULL(DT_WSTR,50) : #{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[country_code]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">country_code == "" ? NULL(DT_WSTR,50) : country_code</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Populate Database\Derived Column.Inputs[Derived Column Input].Columns[state]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[state]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[state]} == "" ? NULL(DT_WSTR,255) : #{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[state]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">state == "" ? NULL(DT_WSTR,255) : state</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Populate Database\Derived Column.Inputs[Derived Column Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="city"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[city]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[city]} == "" ? NULL(DT_WSTR,255) : #{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[city]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">city == "" ? NULL(DT_WSTR,255) : city</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Populate Database\Derived Column.Inputs[Derived Column Input].Columns[location]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="location"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[location]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[location]} == "" ? NULL(DT_WSTR,255) : #{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[location]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">location == "" ? NULL(DT_WSTR,255) : location</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Populate Database\Derived Column.Inputs[Derived Column Input].Columns[company]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="company"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[company]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[company]} == "" ? NULL(DT_WSTR,255) : #{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[company]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">company == "" ? NULL(DT_WSTR,255) : company</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Populate Database\Derived Column.Inputs[Derived Column Input].Columns[long]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="long"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[long]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">#{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[long]} == "" ? NULL(DT_WSTR,255) : #{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[long]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">long == "" ? NULL(DT_WSTR,255) : long</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Populate Database\Derived Column.Inputs[Derived Column Input].Columns[lat]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="lat"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[lat]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">#{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[lat]} == "" ? NULL(DT_WSTR,255) : #{Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[lat]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">lat == "" ? NULL(DT_WSTR,255) : lat</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate Database\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Populate Database\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Populate Database\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Populate Database\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate Database\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate Database\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate Database\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate Database\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate Database\Destino do SQL Server"
+              componentClassID="Microsoft.SQLServerDestination"
+              contactInfo="Destino do SQL Server;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;5"
+              description="Destino do SQL Server"
+              name="Destino do SQL Server"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">65001</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.String"
+                  description="O nome do objeto de banco de dados no qual copiar dados."
+                  expressionType="Notify"
+                  name="BulkInsertTableName">[dbo].[users]</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica que qualquer restrição no objeto de destino será verificada durante a operação de cópia de dados. Corresponde a opção de inserção em massa CHECK_CONSTRAINTS."
+                  name="BulkInsertCheckConstraints">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o número da primeira linha a ser copiada. Corresponde à opção de inserção em massa FIRSTROW."
+                  expressionType="Notify"
+                  name="BulkInsertFirstRow">-1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica que qualquer disparador de inserção definido no objeto de destino será executado durante a cópia de dados. Corresponde à opção de inserção em massa FIRE_TRIGGERS."
+                  name="BulkInsertFireTriggers">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Corresponde à opção de inserção em massa KEEPIDENTITY."
+                  name="BulkInsertKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null copiado no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="BulkInsertKeepNulls">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o número da última linha a ser copiada. Corresponde à opção de inserção em massa LASTROW."
+                  expressionType="Notify"
+                  name="BulkInsertLastRow">-1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o número máximo de erros de sintaxe e erros de compilação que podem ocorrer antes do cancelamento da operação de cópia de dados. Cada linha que não puder ser copiada será ignorada e contada como um erro. Corresponde à opção de inserção em massa MAXERRORS."
+                  name="BulkInsertMaxErrors">-1</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica como os dados a serem copiados estão classificados. Corresponde à opção de inserção em massa ORDER."
+                  expressionType="Notify"
+                  name="BulkInsertOrder"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica que um bloqueio de nível de tabela é adquirido para a duração da operação de cópia de dados. Corresponde à opção de inserção em massa TABLOCK."
+                  name="BulkInsertTablock">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a quantidade de tempo em segundos que o adaptador de Destino SQL aguardará antes de encerrar se não houver dados disponíveis para inserção. Um valor de tempo limite de 0 significa que o adaptador de Destino SQL não terá tempo limite."
+                  expressionType="Notify"
+                  name="Timeout">30</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção dos dados."
+                  name="MaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate Database\Destino do SQL Server.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PC-HUGO\SQL2016.ghtorrent]"
+                  connectionManagerRefId="Package.ConnectionManagers[PC-HUGO\SQL2016.ghtorrent]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server]"
+                  hasSideEffects="true"
+                  name="Entrada de Destino do SQL Server">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[id]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[login]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="login"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[login]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[login]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[company]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="company"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[company]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[company]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[created_at]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="created_at"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[created_at]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[created_at]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[type]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[type]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[fake]"
+                      cachedDataType="i2"
+                      cachedName="fake"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fake]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[fake]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[deleted]"
+                      cachedDataType="i2"
+                      cachedName="deleted"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[deleted]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[deleted]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[long]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="long"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[long]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[long]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[lat]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="lat"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[lat]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[lat]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[country_code]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="country_code"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[country_code]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[country_code]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[state]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[state]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[state]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[city]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[location]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="location"
+                      externalMetadataColumnId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[location]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[location]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[login]"
+                      dataType="wstr"
+                      length="255"
+                      name="login" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[company]"
+                      dataType="wstr"
+                      length="255"
+                      name="company" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[created_at]"
+                      dataType="dbTimeStamp2"
+                      name="created_at"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[type]"
+                      dataType="wstr"
+                      length="255"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fake]"
+                      dataType="i2"
+                      name="fake" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[deleted]"
+                      dataType="i2"
+                      name="deleted" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[long]"
+                      dataType="wstr"
+                      length="50"
+                      name="long" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[lat]"
+                      dataType="wstr"
+                      length="50"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[country_code]"
+                      dataType="wstr"
+                      length="50"
+                      name="country_code" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[state]"
+                      dataType="wstr"
+                      length="255"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="255"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[location]"
+                      dataType="wstr"
+                      length="255"
+                      name="location" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Populate Database\Insert DB Log"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Destino de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Arquivo Simples"
+              localeId="1046"
+              name="Insert DB Log">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica se os dados substituirão o arquivo de destino ou serão anexados a ele."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica o texto a ser gravado no arquivo de destino antes da gravação de quaisquer dados."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate Database\Insert DB Log.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LogPopulateDatabase]"
+                  connectionManagerRefId="Package.ConnectionManagers[LogPopulateDatabase]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Populate Database\Insert DB Log.Inputs[Entrada de Destino de Arquivo Simples]"
+                  hasSideEffects="true"
+                  name="Entrada de Destino de Arquivo Simples">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate Database\Insert DB Log.Inputs[Entrada de Destino de Arquivo Simples].Columns[Flat File Source Error Output Column]"
+                      cachedCodepage="65001"
+                      cachedDataType="text"
+                      cachedName="Flat File Source Error Output Column"
+                      externalMetadataColumnId="Package\Populate Database\Insert DB Log.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Insert DB Log.Inputs[Entrada de Destino de Arquivo Simples].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Populate Database\Insert DB Log.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Populate Database\Insert DB Log.Inputs[Entrada de Destino de Arquivo Simples].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Populate Database\Insert DB Log.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Flat File Source Error Output Column]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Insert DB Log.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Insert DB Log.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Insert DB Log.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      name="Flat File Source Error Output Column" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Populate Database\Sanitized source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1046"
+              name="Sanitized source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate Database\Sanitized source.Connections[FlatFileConnection]"
+                  connectionManagerID="{14484D85-686F-4772-82ED-34F57F15C366}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Sanitized 2]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[id]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[login]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[login]"
+                      length="255"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[login]"
+                      name="login"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[company]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[company]"
+                      length="255"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[company]"
+                      name="company"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[created_at]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[created_at]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[created_at]"
+                      name="created_at"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[type]"
+                      length="255"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[type]"
+                      name="type"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[fake]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[fake]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[fake]"
+                      name="fake"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[deleted]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[deleted]"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[deleted]"
+                      name="deleted"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[long]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[long]"
+                      length="255"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[long]"
+                      name="long"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[lat]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[lat]"
+                      length="255"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[lat]"
+                      name="lat"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[country_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[country_code]"
+                      length="3"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[country_code]"
+                      name="country_code"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[state]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[state]"
+                      length="255"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[state]"
+                      name="state"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[city]"
+                      length="255"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[location]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[location]"
+                      length="255"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].Columns[location]"
+                      name="location"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[login]"
+                      dataType="wstr"
+                      length="255"
+                      name="login" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[company]"
+                      dataType="wstr"
+                      length="255"
+                      name="company" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[created_at]"
+                      dataType="dbTimeStamp2"
+                      name="created_at" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[type]"
+                      dataType="wstr"
+                      length="255"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[fake]"
+                      dataType="i2"
+                      name="fake" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[deleted]"
+                      dataType="i2"
+                      name="deleted" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[long]"
+                      dataType="wstr"
+                      length="255"
+                      name="long" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[lat]"
+                      dataType="wstr"
+                      length="255"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[country_code]"
+                      dataType="wstr"
+                      length="3"
+                      name="country_code" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[state]"
+                      dataType="wstr"
+                      length="255"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="255"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output].ExternalColumns[location]"
+                      dataType="wstr"
+                      length="255"
+                      name="location" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Populate Database.Paths[Derived Column Output]"
+              endId="Package\Populate Database\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server]"
+              name="Derived Column Output"
+              startId="Package\Populate Database\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Populate Database.Paths[Flat File Source Error Output]"
+              endId="Package\Populate Database\Insert DB Log.Inputs[Entrada de Destino de Arquivo Simples]"
+              name="Flat File Source Error Output"
+              startId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Error Output]" />
+            <path
+              refId="Package\Populate Database.Paths[Flat File Source Output]"
+              endId="Package\Populate Database\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Populate Database\Sanitized source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prepare Raw File"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:Disabled="True"
+      DTS:DTSID="{E56198C5-2330-4982-A31D-10E008390101}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prepare Raw File"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Prepare Raw File\Conversão de Dados"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversão de Dados;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversão de Dados"
+              name="Conversão de Dados"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Prepare Raw File\Conversão de Dados.Inputs[Entrada de Conversão de Dados]"
+                  name="Entrada de Conversão de Dados">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Prepare Raw File\Conversão de Dados.Inputs[Entrada de Conversão de Dados].Columns[raw]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="raw"
+                      lineageId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Origem de Arquivo Simples].Columns[raw]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Conversão de Dados]"
+                  exclusionGroup="1"
+                  name="Saída de Conversão de Dados"
+                  synchronousInputId="Package\Prepare Raw File\Conversão de Dados.Inputs[Entrada de Conversão de Dados]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[raw]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[raw]"
+                      name="raw"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica a coluna de entrada usada como a origem dois dados para a conversão."
+                          name="SourceInputColumnLineageID">#{Package\Prepare Raw File\Raw CSV.Outputs[Saída de Origem de Arquivo Simples].Columns[raw]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Conversão de Dados"
+                  synchronousInputId="Package\Prepare Raw File\Conversão de Dados.Inputs[Entrada de Conversão de Dados]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Prepare Raw File\Destino de Arquivo Simples"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Destino de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Arquivo Simples"
+              localeId="1046"
+              name="Destino de Arquivo Simples">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica se os dados substituirão o arquivo de destino ou serão anexados a ele."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica o texto a ser gravado no arquivo de destino antes da gravação de quaisquer dados."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Prepare Raw File\Destino de Arquivo Simples.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LogPopulateDatabase]"
+                  connectionManagerRefId="Package.ConnectionManagers[LogPopulateDatabase]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Prepare Raw File\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples]"
+                  hasSideEffects="true"
+                  name="Entrada de Destino de Arquivo Simples">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Prepare Raw File\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Prepare Raw File\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Prepare Raw File\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Prepare Raw File\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Prepare Raw File\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Prepare Raw File\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                    <externalMetadataColumn
+                      refId="Package\Prepare Raw File\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      name="Flat File Source Error Output Column" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Prepare Raw File\Raw CSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Origem de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
+              description="Origem de Arquivo Simples"
+              localeId="1046"
+              name="Raw CSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica se colunas de comprimento zero são tratadas como nulas."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome de uma coluna de saída que contém o nome do arquivo. Se nenhum nome for especificado, nenhuma coluna de saída contendo o nome de arquivo será gerada."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Prepare Raw File\Raw CSV.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[RawCSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[RawCSV]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Origem de Arquivo Simples]"
+                  name="Saída de Origem de Arquivo Simples">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Origem de Arquivo Simples].Columns[raw]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[raw]"
+                      length="4000"
+                      lineageId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Origem de Arquivo Simples].Columns[raw]"
+                      name="raw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[raw]"
+                      dataType="wstr"
+                      length="4000"
+                      name="raw" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Erro de Origem de Arquivo Simples]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem de Arquivo Simples">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Coluna de Saída de Erro de Origem de Arquivo Simples"
+                      lineageId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                      name="Coluna de Saída de Erro de Origem de Arquivo Simples" />
+                    <outputColumn
+                      refId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Prepare Raw File\Sanitized CSV"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Destino de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Arquivo Simples"
+              localeId="1046"
+              name="Sanitized CSV">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica se os dados substituirão o arquivo de destino ou serão anexados a ele."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica o texto a ser gravado no arquivo de destino antes da gravação de quaisquer dados."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Prepare Raw File\Sanitized CSV.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SanitizedCSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[SanitizedCSV]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Prepare Raw File\Sanitized CSV.Inputs[Entrada de Destino de Arquivo Simples]"
+                  hasSideEffects="true"
+                  name="Entrada de Destino de Arquivo Simples">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Prepare Raw File\Sanitized CSV.Inputs[Entrada de Destino de Arquivo Simples].Columns[raw]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="raw"
+                      externalMetadataColumnId="Package\Prepare Raw File\Sanitized CSV.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[raw]"
+                      lineageId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[raw]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Prepare Raw File\Sanitized CSV.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[raw]"
+                      dataType="wstr"
+                      length="4000"
+                      name="raw" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Prepare Raw File\Transformation"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Coluna Derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Cria novos valores de coluna aplicando expressões a colunas de entrada da transformação. Crie novas colunas ou substitua as existentes. Por exemplo, concatene os valores das colunas 'first name' e 'last name' para formar uma coluna 'full name'."
+              name="Transformation"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Prepare Raw File\Transformation.Inputs[Entrada de Coluna Derivada]"
+                  description="Entrada para a Transformação Coluna Derivada"
+                  name="Entrada de Coluna Derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Prepare Raw File\Transformation.Inputs[Entrada de Coluna Derivada].Columns[raw]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="raw"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Origem de Arquivo Simples].Columns[raw]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">[REPLACE]([REPLACE](#{Package\Prepare Raw File\Raw CSV.Outputs[Saída de Origem de Arquivo Simples].Columns[raw]},"\\N","\"\""),"\\\\","")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(REPLACE(raw,"\\N","\"\""),"\\\\","")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Prepare Raw File\Transformation.Outputs[Saída de Coluna Derivada]"
+                  description="Saída Padrão da Transformação Coluna Derivada"
+                  exclusionGroup="1"
+                  name="Saída de Coluna Derivada"
+                  synchronousInputId="Package\Prepare Raw File\Transformation.Inputs[Entrada de Coluna Derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Prepare Raw File\Transformation.Outputs[Saída de Erro de Coluna Derivada]"
+                  description="Saída de Erro da Transformação Coluna Derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Coluna Derivada"
+                  synchronousInputId="Package\Prepare Raw File\Transformation.Inputs[Entrada de Coluna Derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Prepare Raw File\Transformation.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Prepare Raw File\Transformation.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Prepare Raw File\Transformation.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Prepare Raw File\Transformation.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Prepare Raw File.Paths[Saída de Coluna Derivada]"
+              endId="Package\Prepare Raw File\Conversão de Dados.Inputs[Entrada de Conversão de Dados]"
+              name="Saída de Coluna Derivada"
+              startId="Package\Prepare Raw File\Transformation.Outputs[Saída de Coluna Derivada]" />
+            <path
+              refId="Package\Prepare Raw File.Paths[Saída de Conversão de Dados]"
+              endId="Package\Prepare Raw File\Sanitized CSV.Inputs[Entrada de Destino de Arquivo Simples]"
+              name="Saída de Conversão de Dados"
+              startId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Conversão de Dados]" />
+            <path
+              refId="Package\Prepare Raw File.Paths[Saída de Erro de Conversão de Dados]"
+              endId="Package\Prepare Raw File\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples]"
+              name="Saída de Erro de Conversão de Dados"
+              startId="Package\Prepare Raw File\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados]" />
+            <path
+              refId="Package\Prepare Raw File.Paths[Saída de Origem de Arquivo Simples]"
+              endId="Package\Prepare Raw File\Transformation.Inputs[Entrada de Coluna Derivada]"
+              name="Saída de Origem de Arquivo Simples"
+              startId="Package\Prepare Raw File\Raw CSV.Outputs[Saída de Origem de Arquivo Simples]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarefa Fluxo de Dados"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:Disabled="True"
+      DTS:DTSID="{81AA880F-7830-46E0-AFE5-A4F7D79E6E1B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarefa Fluxo de Dados"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarefa Fluxo de Dados\Coluna Derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Coluna Derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Cria novos valores de coluna aplicando expressões a colunas de entrada da transformação. Crie novas colunas ou substitua as existentes. Por exemplo, concatene os valores das colunas 'first name' e 'last name' para formar uma coluna 'full name'."
+              name="Coluna Derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarefa Fluxo de Dados\Coluna Derivada.Inputs[Entrada de Coluna Derivada]"
+                  description="Entrada para a Transformação Coluna Derivada"
+                  name="Entrada de Coluna Derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Coluna Derivada.Inputs[Entrada de Coluna Derivada].Columns[raw]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="raw"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[raw]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">[REPLACE]([REPLACE]([REPLACE](#{Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[raw]},"\\N","\"\""),"\\\\",""),"\\\"","")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(REPLACE(REPLACE(raw,"\\N","\"\""),"\\\\",""),"\\\"","")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarefa Fluxo de Dados\Coluna Derivada.Outputs[Saída de Coluna Derivada]"
+                  description="Saída Padrão da Transformação Coluna Derivada"
+                  exclusionGroup="1"
+                  name="Saída de Coluna Derivada"
+                  synchronousInputId="Package\Tarefa Fluxo de Dados\Coluna Derivada.Inputs[Entrada de Coluna Derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarefa Fluxo de Dados\Coluna Derivada.Outputs[Saída de Erro de Coluna Derivada]"
+                  description="Saída de Erro da Transformação Coluna Derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Coluna Derivada"
+                  synchronousInputId="Package\Tarefa Fluxo de Dados\Coluna Derivada.Inputs[Entrada de Coluna Derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Coluna Derivada.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarefa Fluxo de Dados\Coluna Derivada.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Coluna Derivada.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarefa Fluxo de Dados\Coluna Derivada.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarefa Fluxo de Dados\Destino de Arquivo Simples"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Destino de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Arquivo Simples"
+              localeId="1046"
+              name="Destino de Arquivo Simples">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica se os dados substituirão o arquivo de destino ou serão anexados a ele."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica o texto a ser gravado no arquivo de destino antes da gravação de quaisquer dados."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarefa Fluxo de Dados\Destino de Arquivo Simples.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SanitizedCSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[SanitizedCSV]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarefa Fluxo de Dados\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples]"
+                  hasSideEffects="true"
+                  name="Entrada de Destino de Arquivo Simples">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].Columns[raw]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="raw"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[raw]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[raw]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[raw]"
+                      dataType="wstr"
+                      length="4000"
+                      name="raw" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Origem de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
+              description="Origem de Arquivo Simples"
+              localeId="1046"
+              name="Origem de Arquivo Simples"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica se colunas de comprimento zero são tratadas como nulas."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome de uma coluna de saída que contém o nome do arquivo. Se nenhum nome for especificado, nenhuma coluna de saída contendo o nome de arquivo será gerada."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[RawCSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[RawCSV]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]"
+                  name="Saída de Origem de Arquivo Simples">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[raw]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[raw]"
+                      length="4000"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[raw]"
+                      name="raw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[raw]"
+                      dataType="wstr"
+                      length="4000"
+                      name="raw" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem de Arquivo Simples">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Coluna de Saída de Erro de Origem de Arquivo Simples"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                      name="Coluna de Saída de Erro de Origem de Arquivo Simples" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarefa Fluxo de Dados.Paths[Saída de Coluna Derivada]"
+              endId="Package\Tarefa Fluxo de Dados\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples]"
+              name="Saída de Coluna Derivada"
+              startId="Package\Tarefa Fluxo de Dados\Coluna Derivada.Outputs[Saída de Coluna Derivada]" />
+            <path
+              refId="Package\Tarefa Fluxo de Dados.Paths[Saída de Origem de Arquivo Simples]"
+              endId="Package\Tarefa Fluxo de Dados\Coluna Derivada.Inputs[Entrada de Coluna Derivada]"
+              name="Saída de Origem de Arquivo Simples"
+              startId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate users"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6FA989F4-1618-4CFB-BFB5-D56997D13606}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate users"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{483FE999-78B1-4805-86DD-B01E12833BEA}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE users" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{94D3AC91-2CED-4E1E-9D84-EBA9DFD904AD}"
+      DTS:From="Package\Truncate users"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Prepare Raw File" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{24553E35-F705-41DA-A75D-B29D3787366C}"
+      DTS:From="Package\Prepare Raw File"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Populate Database" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{974B4D2A-93A2-43E1-8A0E-73DEE306BC85}"
+      DTS:From="Package\Prepare Raw File"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Tarefa Fluxo de Dados" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{BA491FFC-F906-4FB3-9B4A-06CBE8A95766}"
+      DTS:From="Package\Tarefa Fluxo de Dados"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Populate Database" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Populate Database"
+          TopLeft="670.5,154.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Prepare Raw File"
+          TopLeft="364,156" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Tarefa Fluxo de Dados"
+          TopLeft="357,249" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Truncate users"
+          TopLeft="162,154" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="311,176">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53,0"
+              Start="0,0"
+              End="45.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="522,176.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148.5,0"
+              Start="0,0"
+              End="141,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="141,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="443,198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23,51"
+              Start="0,0"
+              End="-23,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.3376205787781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.3376205787781"
+                    Point2="0,30.3376205787781"
+                    Point3="-4,30.3376205787781" />
+                  <mssgle:LineSegment
+                    End="-19,30.3376205787781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19,30.3376205787781"
+                    Point2="-23,30.3376205787781"
+                    Point3="-23,34.3376205787781" />
+                  <mssgle:LineSegment
+                    End="-23,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="479,249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="275,-52.5"
+              Start="0,0"
+              End="275,-45">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-17.2700964630225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-17.2700964630225"
+                    Point2="0,-21.2700964630225"
+                    Point3="4,-21.2700964630225" />
+                  <mssgle:LineSegment
+                    End="271,-21.2700964630225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="271,-21.2700964630225"
+                    Point2="275,-21.2700964630225"
+                    Point3="275,-25.2700964630225" />
+                  <mssgle:LineSegment
+                    End="275,-45" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Populate Database">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Populate Database\Sanitized source"
+          TopLeft="67,157" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Populate Database\Insert DB Log"
+          TopLeft="77,360" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Populate Database\Derived Column"
+          TopLeft="300,159" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Populate Database\Destino do SQL Server"
+          TopLeft="540,160" />
+        <EdgeLayout
+          Id="Package\Populate Database.Paths[Flat File Source Output]"
+          TopLeft="222,179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78,0"
+              Start="0,0"
+              End="70.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="70.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate Database.Paths[Flat File Source Error Output]"
+          TopLeft="146.75,199">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,161"
+              Start="0,0"
+              End="0,153.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,153.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-63.62638671875,70.9453125,127.2527734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate Database.Paths[Derived Column Output]"
+          TopLeft="458,180.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82,0"
+              Start="0,0"
+              End="74.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="74.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate Database\Destino do SQL Server">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Prepare Raw File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Prepare Raw File\Destino de Arquivo Simples"
+          TopLeft="573.560606060606,356.787878787879" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Prepare Raw File\Transformation"
+          TopLeft="119,229" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Prepare Raw File\Raw CSV"
+          TopLeft="135,98" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Prepare Raw File\Conversão de Dados"
+          TopLeft="335.090909090909,230.333333333333" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Prepare Raw File\Sanitized CSV"
+          TopLeft="120,360" />
+        <EdgeLayout
+          Id="Package\Prepare Raw File.Paths[Saída de Origem de Arquivo Simples]"
+          TopLeft="195,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,89"
+              Start="0,0"
+              End="0,81.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Prepare Raw File.Paths[Saída de Erro de Conversão de Dados]"
+          TopLeft="451.090909090909,272.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="226.469696969697,84.4545454545454"
+              Start="0,0"
+              End="226.469696969697,76.9545454545454">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2383292383292" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.2383292383292"
+                    Point2="0,34.2383292383292"
+                    Point3="4,34.2383292383292" />
+                  <mssgle:LineSegment
+                    End="222.469696969697,34.2383292383292" />
+                  <mssgle:CubicBezierSegment
+                    Point1="222.469696969697,34.2383292383292"
+                    Point2="226.469696969697,34.2383292383292"
+                    Point3="226.469696969697,38.2383292383292" />
+                  <mssgle:LineSegment
+                    End="226.469696969697,76.9545454545454" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="29.1516062973483,39.2383292383292,168.166484375,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Prepare Raw File.Paths[Saída de Conversão de Dados]"
+          TopLeft="395.090909090909,272.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-203.590909090909,87.6666666666667"
+              Start="0,0"
+              End="-203.590909090909,80.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5405405405406" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5405405405406"
+                    Point2="0,35.5405405405406"
+                    Point3="-4,35.5405405405406" />
+                  <mssgle:LineSegment
+                    End="-199.590909090909,35.5405405405406" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-199.590909090909,35.5405405405406"
+                    Point2="-203.590909090909,35.5405405405406"
+                    Point3="-203.590909090909,39.5405405405406" />
+                  <mssgle:LineSegment
+                    End="-203.590909090909,80.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Prepare Raw File.Paths[Saída de Coluna Derivada]"
+          TopLeft="270,250.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.0909090909091,0"
+              Start="0,0"
+              End="57.5909090909091,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="57.5909090909091,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Tarefa Fluxo de Dados">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples"
+          TopLeft="95,98" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Tarefa Fluxo de Dados\Destino de Arquivo Simples"
+          TopLeft="95,315" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Tarefa Fluxo de Dados\Coluna Derivada"
+          TopLeft="118,207" />
+        <EdgeLayout
+          Id="Package\Tarefa Fluxo de Dados.Paths[Saída de Origem de Arquivo Simples]"
+          TopLeft="197,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67"
+              Start="0,0"
+              End="0,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarefa Fluxo de Dados.Paths[Saída de Coluna Derivada]"
+          TopLeft="197.5,249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
