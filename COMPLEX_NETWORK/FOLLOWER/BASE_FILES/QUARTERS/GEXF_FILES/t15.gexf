@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.3" version="1.3" xmlns:viz="http://www.gexf.net/1.3/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.3 http://www.gexf.net/1.3/gexf.xsd">
+  <meta lastmodifieddate="2018-08-12">
+    <creator>Gephi 0.9</creator>
+    <description></description>
+  </meta>
+  <graph mode="slice" defaultedgetype="directed" timerepresentation="timestamp" timestamp="15">
+    <nodes>
+      <node id="3569">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-381.7083" y="216.75618"></viz:position>
+      </node>
+      <node id="10423039">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="30.181337" y="499.5633"></viz:position>
+      </node>
+      <node id="3871">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-126.77551" y="-44.250053"></viz:position>
+      </node>
+      <node id="11171026">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-395.8349" y="312.8244"></viz:position>
+      </node>
+      <node id="6221">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="362.21252" y="225.51527"></viz:position>
+      </node>
+      <node id="24194">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="12.050784" y="190.73756"></viz:position>
+      </node>
+      <node id="2559336">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="496.11572" y="-120.23083"></viz:position>
+      </node>
+      <node id="186910">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="18.836733" y="374.43036"></viz:position>
+      </node>
+      <node id="9210226">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-129.25504" y="-132.37062"></viz:position>
+      </node>
+      <node id="316852">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-245.09402" y="-224.99406"></viz:position>
+      </node>
+      <node id="1183289">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="158.479" y="330.33984"></viz:position>
+      </node>
+      <node id="10034957">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-72.08014" y="-392.22653"></viz:position>
+      </node>
+      <node id="3275614">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-229.88834" y="361.7284"></viz:position>
+      </node>
+      <node id="9640394">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-120.64075" y="11.819893"></viz:position>
+      </node>
+      <node id="8219640">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="450.6565" y="-235.66478"></viz:position>
+      </node>
+      <node id="9478906">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="105.0061" y="71.33466"></viz:position>
+      </node>
+      <node id="9931">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-451.97006" y="28.66056"></viz:position>
+      </node>
+      <node id="2313223">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="386.97955" y="-371.2664"></viz:position>
+      </node>
+      <node id="3234367">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="424.98193" y="64.73612"></viz:position>
+      </node>
+      <node id="462474">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-130.49048" y="159.50899"></viz:position>
+      </node>
+      <node id="10409771">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="372.33533" y="-76.76589"></viz:position>
+      </node>
+      <node id="74824">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="251.45312" y="-235.13292"></viz:position>
+      </node>
+      <node id="3753128">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="425.5431" y="-142.41603"></viz:position>
+      </node>
+      <node id="535454">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-234.37329" y="30.596657"></viz:position>
+      </node>
+      <node id="85669">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-313.23404" y="-400.92346"></viz:position>
+      </node>
+      <node id="4027328">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-231.64963" y="99.24488"></viz:position>
+      </node>
+      <node id="10453471">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="111.12024" y="-356.30853"></viz:position>
+      </node>
+      <node id="3325514">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-427.83197" y="-192.44005"></viz:position>
+      </node>
+      <node id="1343943">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="228.43842" y="-317.60742"></viz:position>
+      </node>
+      <node id="3318137">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-379.47018" y="152.29195"></viz:position>
+      </node>
+      <node id="8689806">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-59.16717" y="45.89341"></viz:position>
+      </node>
+      <node id="54808">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="225.29199" y="-335.17218"></viz:position>
+      </node>
+      <node id="1530004">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="361.547" y="180.4026"></viz:position>
+      </node>
+      <node id="11615522">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-133.78967" y="498.7669"></viz:position>
+      </node>
+      <node id="3179">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-357.97595" y="-277.3822"></viz:position>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="103321" source="3569" target="10423039"></edge>
+      <edge id="103322" source="3871" target="11171026"></edge>
+      <edge id="103323" source="6221" target="11171026"></edge>
+      <edge id="103324" source="24194" target="2559336"></edge>
+      <edge id="103325" source="186910" target="9210226"></edge>
+      <edge id="103326" source="24194" target="316852"></edge>
+      <edge id="103327" source="1183289" target="10034957"></edge>
+      <edge id="103328" source="3275614" target="9640394"></edge>
+      <edge id="103329" source="8219640" target="10034957"></edge>
+      <edge id="103330" source="9478906" target="9931"></edge>
+      <edge id="103331" source="9478906" target="2313223"></edge>
+      <edge id="103332" source="10034957" target="3234367"></edge>
+      <edge id="103333" source="10034957" target="8219640"></edge>
+      <edge id="103334" source="462474" target="10409771"></edge>
+      <edge id="103335" source="74824" target="3753128"></edge>
+      <edge id="103336" source="535454" target="2313223"></edge>
+      <edge id="103337" source="3234367" target="10034957"></edge>
+      <edge id="103338" source="9478906" target="85669"></edge>
+      <edge id="103339" source="9478906" target="4027328"></edge>
+      <edge id="103340" source="10453471" target="3325514"></edge>
+      <edge id="103341" source="1343943" target="10034957"></edge>
+      <edge id="103342" source="3318137" target="10034957"></edge>
+      <edge id="103343" source="3753128" target="74824"></edge>
+      <edge id="103344" source="8689806" target="2313223"></edge>
+      <edge id="103345" source="9478906" target="54808"></edge>
+      <edge id="103346" source="10034957" target="1343943"></edge>
+      <edge id="103347" source="1530004" target="11615522"></edge>
+      <edge id="103348" source="9478906" target="3179"></edge>
+      <edge id="103349" source="9478906" target="3325514"></edge>
+      <edge id="103350" source="10034957" target="3318137"></edge>
+    </edges>
+  </graph>
+</gexf>
